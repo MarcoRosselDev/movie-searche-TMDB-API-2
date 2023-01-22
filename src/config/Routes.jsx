@@ -1,18 +1,18 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Detail from "../pages/Detail";
 import Catalog from "../pages/Catalog";
 
-const Routes = () => {
+const RoutesConfig = () => {
   return (
-    <Switch>
-      <Route path="/:category/search/:keyword" component={Catalog} />
-      <Route path="/:category/:id" component={Detail} />
-      <Route path="/:category" component={Catalog} />
-      <Route path="/" exact component={Home} />
-    </Switch>
+    <Routes>
+      <Route path="/:category/search/:keyword" element={<Catalog />} />
+      <Route path="/:category/:id" element={<Detail />} />
+      <Route path="/:category" element={<Catalog />} />
+      <Route path="/" exact element={<Home />} />
+    </Routes>
   );
 };
 
-export default Routes;
+export default RoutesConfig;
