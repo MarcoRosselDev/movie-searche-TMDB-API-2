@@ -25,18 +25,18 @@ const Header = () => {
 
   return (
     <div ref={headerRef} className="header">
-      <div className="header_wrap container">
+      <div className="header__wrap container">
         <div className="logo">
-          <img src={logo} alt="logo of app movie" />
+          <img src={logo} alt="" />
           <Link to="/">tMovies</Link>
-          <ul className="header_nav">
-            {headerNav.map((e, i) => {
-              <li key={i} className={`${i === active ? "active" : ""}`}>
-                <Link to={e.path}>{e.display}</Link>
-              </li>;
-            })}
-          </ul>
         </div>
+        <ul className="header__nav">
+          {headerNav.map((e, i) => (
+            <li key={i} className={`${i === active ? "active" : ""}`}>
+              <Link to={e.path}>{e.display}</Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
