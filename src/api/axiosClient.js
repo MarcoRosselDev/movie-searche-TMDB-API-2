@@ -13,8 +13,16 @@ const axiosClient = axios.create({
 });
 
 axiosClient.interceptors.request.use(async (config) => config);
-axiosClient.interceptors.request.use((response) => {
-  if (response && response.data) {
-    return response.data;
+axiosClient.interceptors.request.use(
+  (response) => {
+    if (response && response.data) {
+      return response.data;
+    }
+    return response;
+  },
+  (error) => {
+    throw error;
   }
-});
+);
+
+export default axiosClient;
