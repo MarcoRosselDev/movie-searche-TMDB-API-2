@@ -13,11 +13,13 @@ const axiosClient = axios.create({
 });
 
 axiosClient.interceptors.request.use(async (config) => config);
-axiosClient.interceptors.request.use(
+
+axiosClient.interceptors.response.use(
   (response) => {
     if (response && response.data) {
       return response.data;
     }
+
     return response;
   },
   (error) => {
